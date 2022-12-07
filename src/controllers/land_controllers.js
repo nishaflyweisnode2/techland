@@ -24,8 +24,6 @@ exports.addland = async(req, res) => {
     }
     console.log(data)
   const landData = await land.create(data)
-const Image =  await offer.create(data);
-    console.log(image);
     res.status(200).json({
         message: "Land Added ", 
         details : landData
