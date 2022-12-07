@@ -74,7 +74,7 @@ exports.updateTLT = async (req, res) => {
 
             }
             const size = TLE + telData.size
-            const TLT = TLE  + telData.TLT
+            const TLT = TLE  
             const price1 = TLE + telData.price
             tltValueUpdate(size, TLT, price1, id);
             res.status(200).json({
