@@ -9,7 +9,7 @@ const offer = require('../models/offers_model');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './offers');
+        cb(null, './Offers');
       },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
