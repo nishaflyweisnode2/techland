@@ -115,3 +115,22 @@ exports.verifyOTP = async(req,res, next) => {
 
 
 
+exports.purchase  = async (req,res) => {
+    try{
+    const balance = req.body.balance
+    const WalletBalence = await wallet.find({userId: req.body.id})
+    console.log(WalletBalence);
+    if(WalletBalence[0].balance  >= balance){
+        const userTLT = await userProfile.updateOne({_id: req.body.id})
+        res.status(200).json({
+            Data : "You Purchase TLT"
+        })
+    }
+}catch(err){
+    res.status(400).json({
+        message: err.message
+    })
+}
+
+
+}

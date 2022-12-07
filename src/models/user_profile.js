@@ -31,6 +31,10 @@ const userprofile  = mongoose.Schema({
     referCode : {
         type : String, 
         unique: true
+    },
+    TLT: {
+        type: String, 
+        default : 0
     }
 
 })

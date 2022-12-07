@@ -13,6 +13,7 @@ router.put('/editinfo/:id', userControllers.UpdateUserInfo)
 router.post('/addprofile', userProfile.userProfile);
 router.put('/update/:id', userProfile.userProfileUpdate);
 router.delete('/delete/:id',[ veriftToken.veriftToken, userProfile.DeleteUser]);
+router.put('/purchase/:id', userProfile.purchase);
 
 
 
