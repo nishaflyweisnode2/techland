@@ -41,7 +41,7 @@ app.use('/api/v1/', contatRouter);
 app.use('/api/v1/', kycRouter);
 app.use('/api/v1/', walletRouter);
 app.use('/api/v1/', referRouter);
-app.use('/api/v1/', adminRouter);
+app.use('/api/v1/admin/', adminRouter);
 app.use('/api/v1/', tleRouter);
 app.use('/api/v1/', eventRouter);
 app.use('/api/v1/', landRouter);
