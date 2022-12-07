@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/Images', express.static('./Images'));
 
-console.log(new AWS.SharedIniFileCredentials({ profile: "techland" }));
+
 
 
 
@@ -57,12 +57,6 @@ mongoose.connect('mongodb+srv://Node2flyweis:node2@cluster0.sj8ekro.mongodb.net/
     console.log("DB is connected ");
 }
 ) 
-
-
-
-
-
-
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("server is running on port 3001");
