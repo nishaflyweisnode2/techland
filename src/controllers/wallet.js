@@ -39,7 +39,9 @@ exports.addMoney = async (req, res) => {
   };
   
   exports.getWallet = async (req, res) => {
+
     const wallet = await Wallet.findOne({ user: req.body.user })
+    console.log(wallet)
     res.status(200).json({
       status: "success",
       data: wallet,
