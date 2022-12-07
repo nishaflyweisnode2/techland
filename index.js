@@ -16,8 +16,6 @@ const tleRouter = require('./src/routers/tle_router');
 const eventRouter = require('./src/routers/event_router');
 const landRouter = require('./src/routers/land_router');
 const offerRouter = require('./src/routers/offers_router');
-const AWS = require("aws-sdk");
-const aws = require('aws-cli');
 
 
 
