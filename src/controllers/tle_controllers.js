@@ -58,7 +58,7 @@ exports.updateTLT = async (req, res) => {
             const price = req.body.price
             const size = price  + telData.size
             const TLT = price + telData.TLT
-            const price1 = price + telData.price
+            const price1 = price 
             tltValueUpdate(size, TLT, price1, id)
             res.status(200).json({
                 message: "TLT Data is Updated "
@@ -82,7 +82,7 @@ exports.updateTLT = async (req, res) => {
             })
         } else if (req.body.size) {
             const size = req.body.size;
-            const size1 = size  + telData.size
+            const size1 = size 
             const TLT = size + telData.TLT
             const price1 = size + telData.price
             tltValueUpdate(size1, TLT, price1, id)
