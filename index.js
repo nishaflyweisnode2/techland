@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const serverless = require('serverless-http');
+const fs = require('fs')
 const cors = require('cors')
 require('dotenv').config()
 const adminRouter = require('./src/routers/admin_router')
@@ -16,6 +17,7 @@ const tleRouter = require('./src/routers/tle_router');
 const eventRouter = require('./src/routers/event_router');
 const landRouter = require('./src/routers/land_router');
 const offerRouter = require('./src/routers/offers_router');
+const https = require('https')
 
 
 
@@ -58,9 +60,11 @@ mongoose.connect('mongodb+srv://Node2flyweis:node2@cluster0.sj8ekro.mongodb.net/
 }
 ) 
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log("server is running on port 3001");
+app.listen(process.env.PORT || 443, () => {
+    console.log("server is running on port 443");
 })
+
+
 
 
 module.exports = {
