@@ -54,42 +54,41 @@ exports.updateTLT = async (req, res) => {
         const telData = await Tle_model.findById({ _id: req.params.id });
        const id = req.params.id ;
         console.log(telData)
-        if (req.body.price) {
             const price = req.body.price
-            const size = price  + telData.size
-            const TLT = price + telData.TLT
+            const size = req.body.size
+            const TLT = req.body.TLT
             const price1 = price 
             tltValueUpdate(size, TLT, price1, id)
             res.status(200).json({
                 message: "TLT Data is Updated "
             })
             // TLT
-        } else if (req.body.TLE) {
-            const TLE = req.body.TLE;
-            if(TLE > telData.TLT){
-                const size = TLE - telData.size
-                const TLT = TLE 
-                const price1 = TLE - telData.price
-                tltValueUpdate(size, TLT, price1, id);
+        // } else if (req.body.TLE) {
+        //     const TLE = req.body.TLE;
+        //     if(TLE > telData.TLT){
+        //         const size = TLE - telData.size
+        //         const TLT = TLE 
+        //         const price1 = TLE - telData.price
+        //         tltValueUpdate(size, TLT, price1, id);
 
-            }
-            const size = TLE + telData.size
-            const TLT = TLE  
-            const price1 = TLE + telData.price
-            tltValueUpdate(size, TLT, price1, id);
-            res.status(200).json({
-                message: "TLT Data is Updated "
-            })
-        } else if (req.body.size) {
-            const size = req.body.size;
-            const size1 = size 
-            const TLT = size + telData.TLT
-            const price1 = size + telData.price
-            tltValueUpdate(size1, TLT, price1, id)
-            res.status(200).json({
-                message: "TLT Data is Updated "
-            })
-        }
+        //     }
+        //     const size = TLE 
+        //     const TLT = TLE  
+        //     const price1 = TLE;
+        //     tltValueUpdate(size, TLT, price1, id);
+        //     res.status(200).json({
+        //         message: "TLT Data is Updated "
+        //     })
+        // } else if (req.body.size) {
+        //     const size = req.body.size;
+        //     const size1 = size 
+        //     const TLT = size 
+        //     const price1 = size + telData.price
+        //     tltValueUpdate(size1, TLT, price1, id)
+        //     res.status(200).json({
+        //         message: "TLT Data is Updated "
+        //     })
+        // }
     } catch (err) {
         console.log(err);
         res.status(200).json({
