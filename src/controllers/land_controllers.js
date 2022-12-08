@@ -3,6 +3,7 @@ const land = require('../models/land_model');
 
 
 const storage = multer.diskStorage({
+    
     destination: function (req, file, cb) {
         cb(null, './Images');
       },
