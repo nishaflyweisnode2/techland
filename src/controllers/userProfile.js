@@ -108,9 +108,10 @@ exports.verifyOTP = async(req,res, next) => {
         username: userData[0].username, 
         email: userData[0].email, 
         mobile: userData[0].mobile,
-        referCode: userData[0].referCode
+        referCode: userData[0].referCode,
+        TLT: userData[0].TLT
       })
-  }
+  }s
 }
 
 
@@ -118,14 +119,28 @@ exports.verifyOTP = async(req,res, next) => {
 exports.purchase  = async (req,res) => {
     try{
     const balance = req.body.balance
-    const WalletBalence = await wallet.find({userId: req.body.id})
-    console.log(WalletBalence);
-    if(WalletBalence[0].balance  >= balance){
-        const userTLT = await userProfile.updateOne({_id: req.body.id})
+    const WalletBalence = await wallet.find({user: req.params.id})
+    if(!WalletBalence){
+        res.status(400).json({
+            message: "Your Wallet is Not Created "
+        })
+    }else{
+         if(WalletBalence[0].balance  >= balance){
+        const userTLT = await userProfile.updateOne({_id: req.params.id},{
+            TLT: balance
+        } 
+            )
+        console.log(userTLT)
         res.status(200).json({
             Data : "You Purchase TLT"
         })
+    }else{
+        res.status(400).json({
+            message: "You Don't Have Money in wallet Please Add Money in wallet "
+        })
     }
+    }
+   
 }catch(err){
     res.status(400).json({
         message: err.message

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const walletSchema = new mongoose.Schema(
   {
-    UserId: { type: String },
+    // UserId: { type: String },
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "'userprofile",
