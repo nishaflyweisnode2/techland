@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const socialSchema = mongoose.Schema({
     userId : {
-        typpe: String
+        type: String
     }, 
     email: {
         type: String

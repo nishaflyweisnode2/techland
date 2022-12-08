@@ -8,10 +8,11 @@ const social = require('../models/google_models');
 exports.AddUserData = async(req,res) => {
     try{
     const data = {
-        userId : req.body.uuid, 
+        userId: req.body.uuid, 
         email: req.body.email, 
         name: req.body.name
     }
+    console.log(data)
     const userData = await social.create(data)
     console.log(userData)
     res.status(200).json({
