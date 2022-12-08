@@ -4,7 +4,7 @@ const ImagesUploads = require('../controllers/kyc_controllers')
 const router = express();
 
 
-router.post('/kyc', ImagesUploads.uploadsKyc);
+router.post('/kyc', [ImagesUploads.uploadImg,ImagesUploads.uploadKyc ]);
 
 
 

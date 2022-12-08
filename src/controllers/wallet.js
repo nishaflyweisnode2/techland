@@ -15,12 +15,20 @@ exports.addMoney = async (req, res) => {
   }
 
   exports.createWallet = async (req, res) => {
-    const w = await Wallet.create({ user: req.body.user });
+    const wall = await Wallet.find({userId: req.body.user})
+    if(!wall){
+      const w = await Wallet.create({ user: req.body.user });
   
-    res.status(200).json({
-      status: "success",
-      data: w,
-    });
+      res.status(200).json({
+        status: "success",
+        data: w,
+      });
+    }else {
+      res.status(400).json({
+        message : "Already walle Created "
+      })
+    }
+   
   };
 
 
