@@ -111,7 +111,7 @@ exports.verifyOTP = async(req,res, next) => {
         referCode: userData[0].referCode,
         TLT: userData[0].TLT
       })
-  }s
+  }
 }
 
 
