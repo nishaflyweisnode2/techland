@@ -8,7 +8,7 @@ const router = express();
 router.post('/wallet', walletContrallers.createWallet);
 router.post('/wallet/add', walletContrallers.addMoney);
 router.post('/wallet/remove', walletContrallers.removeMoney);
-router.get('/wallet', walletContrallers.getWallet);
+router.post('/getwallet', walletContrallers.getWallet);
 
 
 
