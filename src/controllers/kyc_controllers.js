@@ -14,12 +14,12 @@ var storage = multer.diskStorage({
 const  upload = multer({ storage : storage }).array('document',3);
 
 
-exports.uploadsKyc = (req,res) => {
-  console.log("checks");
+exports.uploadsKyc = (req,res, file) => {
+    console.log("checks");
     upload(req,res,function(err) {
         if(err) {
             return res.end("Error uploading file.");
         }
         res.send("Kyc is Done ");
     });
-}
+  }
