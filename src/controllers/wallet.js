@@ -46,7 +46,7 @@ exports.addMoney = async (req, res) => {
 
 
   exports.removeMoney = async (req, res) => {
-    const wallet = await Wallet.findOne({ user: req.body.user });
+    const wallet = await Wallet.findOne({ userId: req.body.user });
     //console.log(wallet);
   
     wallet.balance = wallet.balance - req.body.balance;
