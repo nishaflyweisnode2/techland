@@ -12,6 +12,7 @@ const WalletModel = require('../models/wallet');
         message:"Invalid Refer Code!"
       })
     }
+    console.log(user2)
   
     if (user2.referStatus === "used") {
       res.status(400).json({
@@ -21,9 +22,20 @@ const WalletModel = require('../models/wallet');
   
   
     // Adding money to Old User
-    const wallet2 = await WalletModel.findOne({ user: user2._id });
+    const id = user2._id;
+    console.log(id)
+    const wallet2 = await WalletModel.find({ user: id });
+    console.log(wallet2)
     wallet2.balance = wallet2.balance + 30;
-    await wallet2.save();
+    await WalletModel.updateOne({user: id}, {
+
+      balance : wallet2.balance
+    }
+      )
+    await User.updateOne({referCode: req.body.code},{
+      referStatus : "used"
+    }
+      )
   
     res.status(200).json({
       status: "success",

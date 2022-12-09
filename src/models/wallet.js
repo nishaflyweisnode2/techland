@@ -9,7 +9,7 @@ const walletSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
-    balance: { type: Number, default: 0 },
+    balance: { type: String, default: 0 },
   },
   { timestamps: true }
 );
