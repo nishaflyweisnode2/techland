@@ -1,7 +1,7 @@
 const Wallet = require('../models/wallet')
 
 exports.addMoney = async (req, res) => {
-    const wallet = await Wallet.findOne({ userId: req.body.user});
+    const wallet = await Wallet.findOne({ user: req.body.user});
     console.log(wallet);
     console.log(req.body.balance)
 
@@ -28,9 +28,10 @@ exports.addMoney = async (req, res) => {
   }
 
   exports.createWallet = async (req, res) => {
-    const wall = await Wallet.find({userId: req.body.user})
+    const wall = await Wallet.find({user: req.body.user})
     if(!wall){
-      const w = await Wallet.create({ user: req.body.user });
+      const w = await Wallet.create({ user: req.body.user })
+      
   
       res.status(200).json({
         status: "success",

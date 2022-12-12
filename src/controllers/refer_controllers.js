@@ -14,11 +14,11 @@ const WalletModel = require('../models/wallet');
     }
     console.log(user2)
   
-    if (user2.referStatus === "used") {
-      res.status(400).json({
-        message:"User has already used Referal Code!"
-      })
-    }
+    // if (user2.referStatus === "used") {
+    //   res.status(400).json({
+    //     message:"User has already used Referal Code!"
+    //   })
+    // }
   
   
     // Adding money to Old User
