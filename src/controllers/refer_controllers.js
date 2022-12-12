@@ -6,14 +6,12 @@ const WalletModel = require('../models/wallet');
 
   exports.useReferCode = async (req, res, next) => {
     const user2 = await User.findOne({ referCode: req.body.code });
-  
-    if (!user2) {
+    console.log(user2)
+    if (!user2 && user2 == null) {
       res.status(400).json({
         message:"Invalid Refer Code!"
       })
-    }
-    console.log(user2)
-  
+    }else{
     // if (user2.referStatus === "used") {
     //   res.status(400).json({
     //     message:"User has already used Referal Code!"
@@ -40,4 +38,5 @@ const WalletModel = require('../models/wallet');
     res.status(200).json({
       status: "success",
     });
+  }
   };
